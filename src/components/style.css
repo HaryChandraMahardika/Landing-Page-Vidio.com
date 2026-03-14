@@ -8,9 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 10px;
-  background-color: #1b1e23;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 10px 4%;
+  background-color: transparent;
   color: white;
   right: 0;
   position: fixed;
@@ -18,7 +17,12 @@
   left: 0;
   z-index: 999;
   overflow: visible;
+  transition: background-color 0.3s ease;
+}
 
+.header.scrolled {
+  background-color: var(--bg-header);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .header * {
@@ -83,7 +87,7 @@
 
 .nav-left a:hover,
 .nav-right a:hover {
-  color: red;
+  color: var(--vidio-red);
 }
 
 
@@ -95,17 +99,19 @@
 
 .subscribe {
   background-color: transparent;
-  border: 2px solid orange;
-  color: orange;
+  border: 1px solid var(--vidio-red);
+  color: var(--vidio-red);
   border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: bold;
+  padding: 6px 16px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .subscribe:hover {
-  color: red;
+  background-color: var(--vidio-red);
+  color: white;
 }
 
 .right-section {
@@ -204,9 +210,10 @@
 .banner-container {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: 85vh;
+  min-height: 600px;
   overflow: hidden;
-  background-color: #000;
+  background-color: var(--bg-dark);
 }
 
 .slide {
@@ -230,11 +237,13 @@
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
-  padding: 0 8%;
+  align-items: flex-end;
+  padding: 0 6% 100px 6%;
   box-sizing: border-box;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.1) 80%), 
-                    var(--bg-image);
+  background-image: 
+    linear-gradient(to right, rgba(15, 17, 21, 1) 0%, rgba(15, 17, 21, 0.4) 60%, rgba(15, 17, 21, 0) 100%), 
+    linear-gradient(to top, rgba(15, 17, 21, 1) 0%, rgba(15, 17, 21, 0) 40%),
+    var(--bg-image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -247,16 +256,18 @@
 }
 
 .banner-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 5px; 
+  font-size: 3rem;
+  margin-bottom: 8px; 
+  font-weight: 800;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 /* Style untuk Genre */
 .banner-genre {
-  font-size: 0.9rem;
-  color: #ff002e; 
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #fff; 
+  font-weight: 600;
+  margin-bottom: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -277,41 +288,42 @@
 }
 
 .check-now-btn {
-  background: white;
-  color: black;
+  background: var(--vidio-red);
+  color: white;
   border: none;
-  padding: 12px 30px;
-  border-radius: 8px;
+  padding: 12px 32px;
+  border-radius: 25px;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  transition: opacity 0.2s;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .check-now-btn:hover {
-  background: #f0f0f0;
+  background: #c40812;
+  transform: scale(1.05);
 }
 
 /* Style untuk Button My List */
 .mylist-btn {
-  background: rgba(255, 255, 255, 0.2); 
+  background: transparent; 
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  padding: 12px 30px;
-  border-radius: 8px;
+  border: 2px solid white;
+  padding: 12px 32px;
+  border-radius: 25px;
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  backdrop-filter: blur(5px); 
-  transition: background 0.2s;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .mylist-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
 }
 
 /* Navigation Buttons */
@@ -335,8 +347,8 @@
 /* Dots Indicator */
 .dots-container {
   position: absolute;
-  bottom: 20px;
-  left: 8%;
+  bottom: 25px;
+  left: 6%;
   display: flex;
   gap: 8px;
 }
@@ -356,43 +368,22 @@
 }
 
 /* Content Section */
-.section { padding: 20px 4%; }
-.section-title { font-size: 1.2rem; margin-bottom: 15px; font-weight: bold; }
+.section { padding: 10px 4%; margin-bottom: 25px; }
+.section h2 { font-size: 1.4rem; margin-bottom: 12px; font-weight: 700; color: #fff; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
 
 .card-container {
   display: flex;
-  gap: 20px; 
+  gap: 16px; 
   overflow-x: auto;
   scroll-behavior: smooth;
   scrollbar-width: none;
-  padding-bottom: 20px; 
+  padding: 10px 0 20px 0;
 }
-
-
-.card {
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.2s;
-}
-
-.card:hover { transform: scale(1.05); }
-.card img { width: 100%; aspect-ratio: 2/3; object-fit: cover; }
-.card-info { padding: 10px; font-size: 0.9rem; }
 
 
 /* Section */
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0d0d0d;
-  color: #fff;
-  overflow-x: hidden;
-  padding-top: 60px;
-  padding: 0;
-  width: 100%;
-}
+/* Removed body block to avoid conflict with index.css */
 
 .app-container {
   max-width: 1200px; 
@@ -430,7 +421,15 @@ body {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card-wrapper:hover {
+  transform: scale(1.1);
+  z-index: 10;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.8);
 }
 
 .card {
@@ -527,16 +526,30 @@ body {
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.7);
-  border: none;
+  border: 1px solid rgba(255,255,255,0.3);
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
   z-index: 10;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s, transform 0.2s;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.slider-wrapper:hover .nav-btn {
+  opacity: 1;
+}
+
+.nav-btn:hover {
+  background: var(--vidio-red);
+  transform: translateY(-50%) scale(1.1);
+  border-color: transparent;
 }
 
 .nav-btn.prev { left: -10px; }

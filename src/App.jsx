@@ -6,6 +6,7 @@ import SinetronPilihan from "./components/SinetronPilihan";
 import SpesialUntukmu from "./components/SpesialUntukmu";
 import MiniDrama from "./components/MiniDrama";
 import UpcomingVidio from "./components/UpcomingVidio";
+import "./App.css";
 
 function App() {
   return (
